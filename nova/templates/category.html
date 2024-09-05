@@ -1,0 +1,70 @@
+{% extends 'include/base.html' %}
+{% block body %}
+  {% include 'include/navbar.html' %}
+
+  <div class="container">
+    <div class="row g-3">
+      {% for data in datas %}
+        {% if forloop.first %}
+          {% include 'section/breadcrumb.html' %}
+        {% endif %}
+
+        <div class="col-6 col-lg-3 g-3">
+          {% comment %}card{% endcomment %}
+          <div class="card border-0">
+            {% comment %}card image{% endcomment %}
+
+            <div id="carouselCard{{ forloop.counter }}" class="carousel slide" data-bs-ride="carousel">
+              <div class="carousel-inner" style="height: 350px; width: auto;">
+                <div class="carousel-item active" data-bs-interval="5000" style="height: 100%; width:100%;">
+                  <img class="cardImg" src="{{ data.image1.url }}" alt="{{ data.image1 }}" style="height: 100%; width:100%; object-fit: cover;" />
+                </div>
+                <div class="carousel-item" data-bs-interval="4000" style="height: 100%; width:100%;">
+                  <img class="cardImg" src="{{ data.image2.url }}" alt="{{ data.image2 }}" style="height: 100%; width:100%; object-fit: cover;" />
+                </div>
+                <div class="carousel-item" data-bs-interval="4000" style="height: 100%; width:100%;">
+                  <img class="cardImg" src="{{ data.image3.url }}" alt="{{ data.image }}" style="height: 100%; width:100%; object-fit: cover;" />
+                </div>
+              </div>
+            </div>
+
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselCard{{ forloop.counter }}" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon visually-hidden" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselCard{{ forloop.counter }}" data-bs-slide="next">
+              <span class="carousel-control-next-icon visually-hidden" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+
+            {% comment %}card image end{% endcomment %}
+
+            <a href="{% url 'product' data.category data.id %}" class="text-decoration-none text-light">
+              {% comment %}card body{% endcomment %}
+              <div class="card-body">
+                <h5 class="card-title">{{ data.name|upper|truncatewords:10 }}</h5>
+                <p class="card-text">{{ data.description |truncatechars:100 }}</p>
+                <div class="container-fluid d-flex flex-row justify-content-start">
+                  <p class="card-text"><span>Color: {{ data.color }}</span></p>
+                  <p class="card-text"><span>Stock: {{ data.stock }}</span></p>
+                </div>
+
+                <h3 class="float-start dPrice">&#x20B9 {{ data.discount_price }}</h3>
+                <h5 class="float-end aPrice"><s>&#x20B9 {{ data.actual_price }}</s></h5>
+
+                <form action="{% url 'cartview' %}" method="post">
+                  {% csrf_token %}
+                  <input type="number" value="{{ data.id }}" name="pid" class="visually-hidden"/>
+                  <button class="probtn btn btn-light my-2 container" type="submit">Add to Cart</button>
+                </form>
+              </div>
+            </a>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+
+  {% include 'include/footer.html' %}
+
+{% endblock %}

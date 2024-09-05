@@ -1,0 +1,59 @@
+{% extends 'include/base.html' %}
+{% block body %}
+  {% include 'include/navbar.html' %}
+
+  <div class="container d-flex flex-column align-items-center justify-content-center w-75">
+    <form action="" method="post" class="d-flex flex-column mt-5 w-100">
+      {% csrf_token %}
+      <label class="form-label">Name: {{ user.username }}</label>
+      <label class="form-label">Email: {{ user.email }}</label>
+      <label class="form-label">Contact:</label>
+
+      <div class="form-floating mb-3">
+        <input type="number" name="contact" value="{{ data.contact }}" class="form-control" minlength="10" id="floatingInput" placeholder="contact" required />
+        <label for="floatingInput"></label>
+      </div>
+
+      <label class="form-label my-2" for="address">Address</label>
+
+      <div class="form-floating mb-3">
+        <input type="text" name="lmark" value="{{ data.lmark }}" class="form-control" id="floatingInput1" placeholder="Local" required />
+        <label for="floatingInput1">Land Mark</label>
+      </div>
+
+      <div class="form-floating mb-3">
+        <input type="text" name="local" value="{{ data.local }}" class="form-control" id="floatingInput1" placeholder="Local" required />
+        <label for="floatingInput1">Local</label>
+      </div>
+
+      <div class="form-floating mb-3">
+        <input type="text" name="city" value="{{ data.city }}" class="form-control" id="floatingInput2" placeholder="City" required />
+        <label for="floatingInput2">City</label>
+      </div>
+
+      <div class="form-floating mb-3">
+        <input type="text" name="district" value="{{ data.district }}" class="form-control" id="floatingInput3" placeholder="District" required />
+        <label for="floatingInput3">District</label>
+      </div>
+
+      <div class="form-floating mb-3">
+        <input type="text" name="state" value="{{ data.state }}" class="form-control" id="floatingInput4" placeholder="State" required />
+        <label for="floatingInput4">State</label>
+      </div>
+
+      <div class="form-floating mb-3">
+        <input type="number" name="pincode" value="{{ data.pincode }}" minlength="6" class="form-control" id="floatingInput5" placeholder="Pincode" required />
+        <label for="floatingInput5">Pin Code</label>
+      </div>
+
+      <button class="btn btn-success my-3 p-1">Update</button>
+      {% include "include/alert.html" %}
+    </form>
+
+    <div class="m-5 d-flex align-items-center justify-content-center">
+      <a href="{% url 'orders' %}" class="nav-link m-5 d-flex align-items-center justify-content-center">Your Orders<lord-icon src="https://cdn.lordicon.com/zzjjvkam.json" trigger="hover" stroke="bold" colors="primary:#6c16c7,secondary:#30c9e8" style="width:50px;height:50px"></lord-icon></a>
+    </div>
+  </div>
+
+  {% include 'include/footer.html' %}
+{% endblock %}

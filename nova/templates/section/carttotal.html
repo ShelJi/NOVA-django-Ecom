@@ -1,0 +1,10 @@
+<div class="col-8 d-flex p-lg-2 flex-column justify-content-center align-items-start">
+    <h4><b>Total Products: </b>&#x20B9 <span class="counttotal"></span></h4>
+    <h4><b>Total Price: </b>&#x20B9 <span class="grandtotal"></span></h4>
+</div>
+<div class="col-4 p-lg-2 d-flex justify-content-end align-items-center ">
+    <form action="{% url "orders" %}" method="post">
+        {% csrf_token %}
+        <button class="btn btn-success m-lg-5">Place Order</button>
+    </form>
+</div>

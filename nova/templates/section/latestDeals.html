@@ -1,0 +1,24 @@
+<div class="row m-1">
+  <div id="carouselExampleIndicators" class="carousel slide carousel-fade" data-bs-ride="carousel">
+    {% comment %} <div class="carousel-indicators">
+      {% for data in lDeals %}
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="{{ forloop.counter0 }}" class="{% if forloop.first %} active {% endif %}" aria-current="{% if forloop.first %} true {% endif %} " aria-label="Slide {{ forloop.counter0 }}"></button>
+      {% endfor %}
+    </div> {% endcomment %}
+    <div class="carousel-inner">
+      {% for data in lDeals %}
+        <div class="carousel-item {% if forloop.first %} active {% endif %} " data-bs-interval="4000">
+          <img src="{{ data.carousel.url }}" class="d-block w-100 rounded-3 latestDeals" alt="{{ data.carousel }}" style="height: 100%; width:100%; object-fit: cover;" />
+        </div>
+      {% endfor %}
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+</div>

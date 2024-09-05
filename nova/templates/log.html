@@ -1,0 +1,76 @@
+{% extends 'include/base.html' %}
+{% block body %}
+  {% include 'include/navbar.html' %}
+  
+  <div class="login">
+    <div class="wrapper">
+      <form action="" method="post">
+        
+        {% csrf_token %}
+        
+        <h1>{{ topic }}</h1>
+        
+        {% if topic == "Sign Up" %}
+
+        <div class="input-box">
+          <input type="text" placeholder="Username" required name="username" />
+          <i class="bx bxs-user"></i>
+        </div>
+
+        <div class="input-box">
+          <input type="password" placeholder="Password" required name="password" />
+          <i class="bx bxs-lock-alt"></i>
+        </div>
+
+          <div class="input-box">
+            <input type="email" placeholder="Email" required name="email" />
+            <i class="bx bxs-user"></i>
+          </div>
+
+          <button type="submit" class="button">Sign Up</button>
+          
+          <p class="register-link">
+            Already have an account?
+
+            
+            <a href="{% url "login" %}" class="">Login</a>
+            {% include "include/alert.html" %}
+          </p>
+
+        {%  endif %}
+
+        {% if topic == "LOGIN" %}
+
+        <div class="input-box">
+          <input type="text" placeholder="Username" required name="username" />
+          <i class="bx bxs-user"></i>
+        </div>
+
+        <div class="input-box">
+          <input type="password" placeholder="Password" required name="password" />
+          <i class="bx bxs-lock-alt"></i>
+        </div>
+        
+        <div class="remember-forgot">
+            <label><input type="checkbox" />Remember me</label>
+  
+            <a href="#">Forget password?</a>
+        </div>
+
+        <button type="submit" class="button">Login</button>
+
+        {% include "include/alert.html" %}
+
+        <p class="register-link">
+          Don't have an account?
+          <a href="{% url "register" %}">Register</a>
+        </p>
+
+        {% endif %}
+
+      </form>
+    </div>
+  </div>
+  {% include 'include/footer.html' %}
+
+{% endblock %}

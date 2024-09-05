@@ -1,0 +1,23 @@
+<div class="mt-4 mb-2">
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item">
+        <a href="{% url 'home' %}" class="text-decoration-none text-light fs-6">Home</a>
+      </li>
+  
+      {% if category %}
+        <li class="breadcrumb-item active fs-6" aria-current="page">{{ data.category|title }}s</li>
+  
+      {% elif cart %}
+        <li class="breadcrumb-item active fs-6 d-flex justify-content-center" aria-current="page">Cart<lord-icon class="mx-2" src="https://cdn.lordicon.com/odavpkmb.json" trigger="hover" stroke="bold" colors="primary:#6c16c7,secondary:#30c9e8" style="width:30px;height:30px"></lord-icon></li>
+  
+      {% elif data.name %}
+        <li class="breadcrumb-item">
+          <a href="{% url 'category' data.category %}" class="text-decoration-none text-light fs-6">{{ data.category|title }}s</a>
+        </li>
+        <li class="breadcrumb-item active fs-6" aria-current="page">{{ data.name|title|truncatewords:2 }}</li>
+  
+      {% endif %}
+    </ol>
+  </nav>
+</div>

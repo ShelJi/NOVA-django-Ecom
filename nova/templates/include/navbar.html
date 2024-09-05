@@ -1,0 +1,31 @@
+{% load static %}
+<div class="navTrans">
+  <nav class="navbar navbar-expand-lg">
+    <div class="container">
+      <a class="navbar-brand" href="{% url 'home' %}"><img src="{% static 'images/nova.png' %}" alt="NOVA TECH" height="60px" width="auto" /> Tech Solutions</a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="navbar-nav ms-auto mb-2 mb-lg-0 d-flex justify-content-center align-items-center">
+
+          <a href="{% url 'home' %}" class="nav-link active">Home</a>
+
+          {% if user.is_authenticated %}
+            <a href="{% url 'profile' %}" class="nav-link"><lord-icon src="https://cdn.lordicon.com/xfzuyvam.json" trigger="in" delay="1500" stroke="bold" state="in-reveal" style="width:30px;height:30px"></lord-icon> {{ request.user.username }}</a>
+            <a href="{% url 'cartview' %}" class="nav-link"><lord-icon class="mx-2" src="https://cdn.lordicon.com/odavpkmb.json" trigger="hover" stroke="bold" colors="primary:#6c16c7,secondary:#30c9e8" style="width:30px;height:30px"></lord-icon>Cart</a>
+            <a href="{% url 'logout' %}" class="nav-link"><lord-icon src="https://cdn.lordicon.com/bgebyztw.json" trigger="hover" stroke="bold" state="hover-nodding" colors="primary:#6c16c7,secondary:#30c9e8" style="width:30px;height:30px"></lord-icon>Logout</a>
+          {% else %}
+            <a href="{% url 'login' %}" class="nav-link"><lord-icon src="https://cdn.lordicon.com/xfzuyvam.json" trigger="in" delay="1500" state="hover-looking-around" style="width:30px;height:30px"></lord-icon>Login</a>
+            <a href="{% url 'register' %}" class="nav-link"><lord-icon src="https://cdn.lordicon.com/bgebyztw.json" trigger="morph" stroke="bold" state="morph-group" colors="primary:#6c16c7,secondary:#30c9e8" style="width:30px;height:30px"></lord-icon>Sign Up</a>
+          {% endif %}
+
+
+          <input type="checkbox" class="btn-check" id="toggleThemeButton" onclick="toggletheme()" autocomplete="off" />
+          <label class="btn btn-outline-primary" for="toggleThemeButton">Light</label>
+
+        </div>
+      </div>
+    </div>
+  </nav>
+</div>

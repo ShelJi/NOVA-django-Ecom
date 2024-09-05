@@ -1,0 +1,12 @@
+{% extends 'include/base.html' %}
+{% block body %}
+
+    <h1>{{cartDatas}}</h1>
+    {% for data in cartDatas %}
+    <p>{{ data }}</p>
+    <p>{{data.userID.username}}</p>
+    <p>{{data.productID.name}}</p>
+    <p>{{data.countval}}</p>
+    {% endfor %}
+
+{% endblock %}

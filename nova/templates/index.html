@@ -1,0 +1,147 @@
+{% extends 'include/base.html' %}
+{% block body %}
+  {% include 'include/navbar.html' %}
+
+  <div class="container mt-2">
+    {% include 'section/latestDeals.html' %}
+
+    {% if mobiles %}
+      <div class="cateHeading">
+        <h3 class="m-5 ms-3"><a class="text-light" href="{% url 'category' 'mobile' %}">MOBILES</a></h3>
+        <div class="row g-1">
+          {% for data in mobiles|slice:'0:4' %}
+            {% include 'section/carddata.html' %}
+          {% endfor %}
+        </div>
+        <div class="cateIcons">
+          <a href="{% url 'category' 'mobile' %}" class="text-decoration-none"><i class='bx bx-chevron-right'></i></a>
+        </div>
+        <div class="cateIconsResp">
+          <a href="{% url 'category' 'mobile' %}" class="text-decoration-none">View all <i class='bx bx-chevron-right'></i></a>
+        </div>
+      </div>
+    {% endif %}
+
+    {% if cases %}
+      <div class="cateHeading">
+        <h3 class="m-5 ms-3"><a class="text-light" href="{% url 'category' 'case' %}">CASES</a></h3>
+        <div class="row g-1">
+          {% for data in cases|slice:'0:4' %}
+            {% include 'section/carddata.html' %}
+          {% endfor %}
+        </div>
+        <div class="cateIcons">
+          <a href="{% url 'category' 'case' %}" class="text-decoration-none"><i class='bx bx-chevron-right'></i></a>
+        </div>
+        <div class="cateIconsResp">
+          <a href="{% url 'category' 'case' %}" class="text-decoration-none">View all <i class='bx bx-chevron-right'></i></a>
+        </div>
+      </div>
+    {% endif %}
+
+    {% if headphones %}
+      <div class="cateHeading">
+        <h3 class="m-5 ms-3"><a class="text-light" href="{% url 'category' 'headphone' %}">HEADPHONES</a></h3>
+        <div class="row g-1">
+          {% for data in headphones|slice:'0:4' %}
+            {% include 'section/carddata.html' %}
+          {% endfor %}
+        </div>
+        <div class="cateIcons">
+          <a href="#" class="{% url 'category' 'headphone' %}text-decoration-none"><i class='bx bx-chevron-right'></i></a>
+        </div>
+        <div class="cateIconsResp">
+          <a href="{% url 'category' 'headphone' %}" class="text-decoration-none">View all <i class='bx bx-chevron-right'></i></a>
+        </div>
+      </div>
+    {% endif %}
+
+    {% if watchs %}
+      <div class="cateHeading">
+        <h3 class="m-5 ms-3"><a class="text-light" href="{% url 'category' 'watch' %}">WATCHES</a></h3>
+        <div class="row g-1">
+          {% for data in watchs|slice:'0:4' %}
+            {% include 'section/carddata.html' %}
+          {% endfor %}
+        </div>
+        <div class="cateIcons">
+          <a href="{% url 'category' 'watch' %}" class="text-decoration-none"><i class='bx bx-chevron-right'></i></a>
+        </div>
+        <div class="cateIconsResp">
+          <a href="{% url 'category' 'watch' %}" class="text-decoration-none">View all <i class='bx bx-chevron-right'></i></a>
+        </div>
+      </div>
+    {% endif %}
+
+    {% if gadgets %}
+      <div class="cateHeading">
+        <h3 class="m-5 ms-3"><a class="text-light" href="{% url 'category' 'gadget' %}">GADGETS</a></h3>
+        <div class="row g-1">
+          {% for data in gadgets|slice:'0:4' %}
+            {% include 'section/carddata.html' %}
+          {% endfor %}
+        </div>
+        <div class="cateIcons">
+          <a href="{% url 'category' 'gadget' %}" class="text-decoration-none"><i class='bx bx-chevron-right'></i></a>
+        </div>
+        <div class="cateIconsResp">
+          <a href="{% url 'category' 'gadget' %}" class="text-decoration-none">View all <i class='bx bx-chevron-right'></i></a>
+        </div>
+      </div>
+    {% endif %}
+
+    {% if laptops %}
+      <div class="cateHeading">
+        <h3 class="m-5 ms-3"><a class="text-light" href="{% url 'category' 'laptop' %}">LAPTOPS</a></h3>
+        <div class="row g-1">
+          {% for data in laptops|slice:'0:4' %}
+            {% include 'section/carddata.html' %}
+          {% endfor %}
+        </div>
+        <div class="cateIcons">
+          <a href="{% url 'category' 'laptop' %}" class="text-decoration-none"><i class='bx bx-chevron-right'></i></a>
+        </div>
+        <div class="cateIconsResp">
+          <a href="{% url 'category' 'laptop' %}" class="text-decoration-none">View all <i class='bx bx-chevron-right'></i></a>
+        </div>
+      </div>
+    {% endif %}
+
+    {% if batterys %}
+      <div class="cateHeading">
+        <h3 class="m-5 ms-3"><a class="text-light" href="{% url 'category' 'battery' %}">BATTERIES</a></h3>
+        <div class="row g-1">
+          {% for data in batterys|slice:'0:4' %}
+            {% include 'section/carddata.html' %}
+          {% endfor %}
+        </div>
+        <div class="cateIcons">
+          <a href="{% url 'category' 'battery' %}" class="text-decoration-none"><i class='bx bx-chevron-right'></i></a>
+        </div>
+        <div class="cateIconsResp">
+          <a href="{% url 'category' 'battery' %}" class="text-decoration-none">View all <i class='bx bx-chevron-right'></i></a>
+        </div>
+      </div>
+    {% endif %}
+
+    {% if electronics %}
+      <div class="cateHeading">
+        <h3 class="m-5 ms-3"><a class="text-light" href="{% url 'category' 'electronics' %}">ELECTRONICS</a></h3>
+        <div class="row g-1">
+          {% for data in electronics|slice:'0:4' %}
+            {% include 'section/carddata.html' %}
+          {% endfor %}
+        </div>
+        <div class="cateIcons">
+          <a href="{% url 'category' 'electronics' %}" class="text-decoration-none"><i class='bx bx-chevron-right'></i></a>
+        </div>
+        <div class="cateIconsResp">
+          <a href="{% url 'category' 'electronics' %}" class="text-decoration-none">View all <i class='bx bx-chevron-right'></i></a>
+        </div>
+      </div>
+    {% endif %}
+  </div>
+
+  {% include 'include/footer.html' %}
+
+{% endblock %}

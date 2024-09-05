@@ -1,0 +1,386 @@
+@import url('https://fonts.googleapis.com/css2?family=Reddit+Mono:wght@200..900&display=swap');
+
+:root {
+    --txt-color: black;
+    --border-color: white;
+    --box-shadow: rgba(0, 0, 0, 0.5);
+    --border-input: rgba(0, 0, 0, 0.2);
+}
+
+body[data-bs-theme="dark"] {
+    --txt-color: white;
+    --border-color: black;
+    --box-shadow: rgba(255, 255, 255, 0.5);
+    --border-input: rgba(255, 255, 255, 0.2);
+
+    .login {
+        background: url('images/bg_2.jpg') no-repeat center center fixed;
+        background-size: cover;
+    }
+
+
+    .probtn {
+        background-color: white;
+        color: black;
+    }
+
+
+    .footer {
+        /* color: var(--txt-color); */
+        background-color: black;
+    }
+}
+
+.text-light {
+    color: var(--txt-color) !important;
+}
+
+.probtn {
+    background-color: black;
+    color: white;
+}
+
+
+* {
+    font-family: "Reddit Mono", monospace;
+
+    /* outline: yellow solid 1px; */
+}
+
+/**********        LOGIN        ************/
+.login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 85vh;
+    background: url('images/bg_1.jpg') no-repeat center center fixed;
+    background-size: cover;
+    background-position: center;
+}
+
+.login .wrapper {
+    width: 420px;
+    background: transparent;
+    color: var(--txt-color);
+    border: 0px solid var(--border-color);
+    border-radius: 10px;
+    padding: 40px 50px;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 10px var(--box-shadow);
+}
+
+.login .wrapper h1 {
+    font-size: 40px;
+    font-weight: 900;
+    text-align: center;
+}
+
+.login .wrapper .input-box {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    margin: 30px 0;
+}
+
+.login .input-box input {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    border: 2px solid var(--border-input);
+    border-radius: 40px;
+    font-size: 18px;
+    padding: 20px;
+    color: var(--txt-color);
+}
+
+.login .input-box input::placeholder {
+    color: var(--txt-color);
+    font-size: 14px;
+    font-weight: 300;
+}
+
+.login .input-box i {
+    position: absolute;
+    top: 50%;
+    right: 5%;
+    transform: translateY(-50%);
+    font-size: 20px;
+}
+
+.login .wrapper .remember-forgot {
+    display: flex;
+    justify-content: space-between;
+    margin: -20px 5px 10px 10px;
+    font-size: 14px;
+    opacity: 0.7;
+}
+
+.login .remember-forgot label input {
+    margin-right: 5px;
+    accent-color: var(--txt-color);
+}
+
+.remember-forgot a {
+    color: var(--txt-color);
+    opacity: 0.6;
+    text-decoration: none;
+}
+
+.login .remember-forgot a:hover {
+    text-decoration: underline;
+}
+
+.login .wrapper .button {
+    width: 100%;
+    height: 45px;
+    border-radius: 40px;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    box-shadow: 0 0 10px var(--box-shadow);
+    cursor: pointer;
+    font-weight: 600;
+    color: var(--txt-color);
+    opacity: 0.8;
+}
+
+.login .wrapper .register-link {
+    font-size: 14px;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 30px;
+    opacity: 0.7;
+}
+
+.login .register-link a {
+    color: var(--txt-color);
+    text-decoration: none;
+    opacity: 0.6;
+}
+
+.login .register-link a:hover {
+    text-decoration: underline;
+}
+
+/**********        END LOGIN        ************/
+
+.navbar .navbar-brand {
+    font-size: 2rem;
+}
+
+.navbar-brand img {
+    /* background: rgba(0, 0, 0, 0.3); */
+    /* background-image: rgba(0, 0, 0, 0.3); */
+    /* backdrop-filter: blur(100px); */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+}
+
+.navbar .nav-link {
+    font-size: 1.11rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.latestDeals {
+    height: 70vh !important;
+}
+
+.dPrice {
+    background-color: green !important;
+    color: white !important;
+    border-radius: 4px !important;
+    padding: 0 1px !important;
+    font-size: 1.5rem !important;
+}
+
+.aPrice {
+    font-size: 1rem !important;
+    color: red !important;
+}
+
+.cateHeading {
+    position: relative;
+}
+
+.cateIcons {
+    position: absolute;
+    font-size: 4rem;
+    color: var(--txt-color);
+
+    top: 35%;
+    right: -50px;
+    z-index: 100;
+}
+
+.cateIcons> :first-child {
+    color: var(--txt-color);
+}
+
+.cateIconsResp {
+    display: none;
+}
+
+.card-body {
+    z-index: 2 !important;
+}
+
+.card-text {
+    text-align: justify;
+}
+
+#carouselExampleDark {
+    height: 90vh !important;
+}
+
+.productname {
+    /* font-size: 1.5rem; */
+    font-style: bold;
+}
+
+.productdiscountprice {
+    width: fit-content;
+}
+
+.input-group {
+    width: fit-content;
+    height: 40px;
+}
+
+img {
+    font-style: italic;
+    background-repeat: no-repeat;
+}
+
+.cartcarouselimg {
+    height: 200px;
+}
+
+.cartformres {
+    display: block;
+}
+
+.cartformresshow {
+    display: none;
+}
+
+.cartnameres {
+    display: block;
+}
+
+.cartnameresshow {
+    display: none;
+}
+
+.cartprice>* {
+    font-size: 1.3rem;
+}
+
+.footer {
+    color: var(--txt-color);
+    background-color: aliceblue;
+    height: 30vh !important;
+}
+
+.cartset {
+    height: 43px !important;
+}
+
+.cartemptyspace {
+    height: 80vh;
+}
+
+.gifemptycart {
+    height: 80vh;
+    background: url(images/doglight.gif) center center no-repeat;
+    background-size: cover;
+}
+
+/**********        Responsive layout        ************/
+@media (max-width: 1200px) {
+    .latestDeals {
+        height: 60vh !important;
+    }
+}
+
+@media (max-width: 992px) {
+    .latestDeals {
+        height: 50vh !important;
+    }
+
+    .cateIcons {
+        display: none;
+    }
+
+    .cateIconsResp {
+        display: block;
+        position: absolute;
+        bottom: -40px;
+        right: 20px;
+        z-index: 100;
+        font-size: 1.2rem;
+    }
+
+    .cateIconsResp> :first-child {
+        color: var(--txt-color);
+    }
+
+}
+
+@media (max-width: 768px) {
+    .latestDeals {
+        height: 40vh !important;
+    }
+
+    /**********        index card for category        ************/
+    .dPrice {
+        font-size: 1.3rem !important;
+    }
+
+    .aPrice {
+        font-size: .8rem !important;
+    }
+
+    /* .cartcarouselimg {
+        height: 140px;
+    } */
+
+    .cartformres {
+        display: none;
+    }
+
+    .cartformresshow {
+        display: block;
+    }
+
+    .cartnameres {
+        display: none;
+    }
+
+    .cartnameresshow {
+        display: block;
+    }
+
+    .navbar .navbar-brand {
+        font-size: 1rem;
+    }
+
+    .cartprice>* {
+        font-size: .8rem;
+    }
+
+}
+
+@media (max-width: 576px) {
+    .latestDeals {
+        height: 35vh !important;
+    }
+
+    .login .wrapper {
+        margin: 15px;
+    }
+
+
+}

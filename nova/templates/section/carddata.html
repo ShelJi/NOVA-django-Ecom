@@ -1,0 +1,43 @@
+<div class="col-6 col-lg-3">
+  {% comment %}card{% endcomment %}
+
+  <div class="card border-0">
+    <a href="{% url 'product' data.category data.id %}" class="text-decoration-none text-light">
+      {% comment %}card image{% endcomment %}
+
+      <div id="carouselCardIndex{{ forloop.counter }}" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner" style="height: 340px">
+          <div class="carousel-item active" data-bs-interval="5000" style="height: 340px">
+            <img src="{{ data.image1.url }}" alt="{{ data.image1 }}" style="height: 100%; width:100%; object-fit: cover;" />
+          </div>
+          <div class="carousel-item" data-bs-interval="4000" style="height: 340px">
+            <img src="{{ data.image2.url }}" alt="{{ data.image2 }}" style="height: 100%; width:100%; object-fit: cover;" />
+          </div>
+          <div class="carousel-item" data-bs-interval="3000" style="height: 340px">
+            <img src="{{ data.image3.url }}" alt="{{ data.image }}" style="height: 100%; width:100%; object-fit: cover;" />
+          </div>
+        </div>
+      </div>
+    </a>
+    {% comment %}card image end{% endcomment %}
+
+    {% comment %}card body{% endcomment %}
+    <div class="card-body">
+      <a href="{% url 'product' data.category data.id %}" class="text-decoration-none text-light">
+        <h5 class="card-title">{{ data.name|upper|truncatewords:6 }}</h5>
+        
+        {% if data.reviews %}<p>{{ data.reviews.rating }}</p>{% endif %}
+        <p>{{ data.reviews.rating }}</p>
+        <p>{{ data.reviews.review }}</p>
+        
+        <h3 class="float-start dPrice">&#x20B9 {{ data.discount_price }}</h3>
+        <h5 class="float-end aPrice"><s>&#x20B9 {{ data.actual_price }}</s></h5>
+      </a>
+      <form action="{% url 'cartview' %}" method="post">
+        {% csrf_token %}
+        <input type="number" value="{{ data.id }}" name="pid" class="visually-hidden"/>
+        <button class="probtn btn btn-light my-2 container" type="submit">Add to Cart</button>
+      </form>
+    </div>
+  </div>
+</div>
